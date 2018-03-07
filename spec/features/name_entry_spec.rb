@@ -1,6 +1,6 @@
 feature 'enter name' do
 
-  scenario 'allows players to enter their name and then displays them' do
+  scenario 'Allows players to enter their name and then displays them' do
     visit '/'
     fill_in(:Player1, with: 'Ragnar')
     fill_in(:Player2, with: 'Thracian')

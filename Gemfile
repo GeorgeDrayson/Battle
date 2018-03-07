@@ -9,3 +9,4 @@ gem 'selenium-webdriver'
 gem 'rspec'
 gem 'sinatra'
 gem 'shotgun'
+gem 'simplecov', require: false, group: :test
