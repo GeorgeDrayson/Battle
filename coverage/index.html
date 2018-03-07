@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-03-07T17:46:19+00:00">2018-03-07T17:46:19+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-03-07T17:59:57+00:00">2018-03-07T17:59:57+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,13 +25,13 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.24
+         1.39
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>3</b> files in total.
+    <b>4</b> files in total.
     <b>27</b> relevant lines. 
     <span class="green"><b>27</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
@@ -63,9 +63,9 @@
       <tr>
         <td class="strong"><a href="#836fd071deb9d105e89bed87ff094fcbecc8300a" class="src_link" title="spec/features/hit_points_spec.rb">spec/features/hit_points_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>10</td>
         <td>7</td>
-        <td>7</td>
+        <td>4</td>
+        <td>4</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -73,11 +73,21 @@
       <tr>
         <td class="strong"><a href="#2e2c795a6a085847fa5874bc066cc380b8de66c2" class="src_link" title="spec/features/name_entry_spec.rb">spec/features/name_entry_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>11</td>
-        <td>7</td>
-        <td>7</td>
+        <td>9</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
         <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#16ea5f1df98313c259f91032505e0db0aad6f6e9" class="src_link" title="spec/features/web_helpers.rb">spec/features/web_helpers.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>6</td>
+        <td>5</td>
+        <td>5</td>
+        <td>0</td>
+        <td>1.8</td>
       </tr>
       
     </tbody>
@@ -152,8 +162,8 @@
           <code class="ruby">  get &#39;/&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="8">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="8">
+          <span class="hits">3</span>
           
           <code class="ruby">    erb(:index)</code>
         </li>
@@ -264,8 +274,8 @@
     <h3>spec/features/hit_points_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -288,46 +298,28 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">    visit &#39;/&#39;</code>
+          <code class="ruby">    sign_in_and_play</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">    fill_in(:Player1, with: &#39;Ragnar&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    fill_in(:Player2, with: &#39;Thracian&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    click_button(&#39;Submit&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
-          
           <code class="ruby">    expect(page).to have_content(&#39;Thracian: 100/100&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">end</code>
@@ -343,8 +335,8 @@
     <h3>spec/features/name_entry_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -379,40 +371,83 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    fill_in(:Player1, with: &#39;Ragnar&#39;)</code>
+          <code class="ruby">    sign_in_and_play</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">    fill_in(:Player2, with: &#39;Thracian&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    click_button(&#39;Submit&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
-          
           <code class="ruby">    expect(page).to have_content(&quot;Ragnar versus Thracian&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="16ea5f1df98313c259f91032505e0db0aad6f6e9">
+  <div class="header">
+    <h3>spec/features/web_helpers.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">def sign_in_and_play</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="2">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  visit &#39;/&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="3">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  fill_in(:Player1, with: &#39;Ragnar&#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="4">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  fill_in(:Player2, with: &#39;Thracian&#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="5">
+          <span class="hits">2</span>
+          
+          <code class="ruby">  click_button(&#39;Submit&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby">end</code>
