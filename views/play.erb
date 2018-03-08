@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+  <html>
+
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        display: inline-block;
+        padding: 0;
+        margin: auto;
+        }
+
+        h1 {
+          font-weight: bold;
+        }
+
+        #right {
+        width: 700px;
+        position: absolute;
+        left: 50%;
+        }
+
+        #left {
+          float: left;
+          width: 700px;
+          position: relative;
+          padding-top: 100px;
+        }
+
+        #center {
+          position: absolute;
+          padding-top: 300px;
+          left: 30%;
+        }
+
+      </style>
+
+      <body>
+        <h1> <%= @game.player1.name %> versus <%= @game.player2.name %> </h1>
+        <br />
+
+        <div  id="right"  class="w3-container w3-center">
+        <h1> <%= @game.player2.name %>: </h1>
+        <div class="w3-border w3-red w3-round-xlarge"  style="color:red">
+          <div class="w3-green w3-round-xlarge" style="height:24px;width:<%= @game.player2.health %>%"><%= @game.player2.health %></div>
+        </div>
+        <br />
+        <% if !@game.player_1_turn && !@confirmation %>
+          <form action='/attack' method="post">
+            <input type="submit" value="Attack">
+          </form>
+        <% end %>
+        </div>
+
+        <div  id="left"  class="w3-container w3-center">
+        <h1> <%= @game.player1.name %>: </h1>
+        <div class="w3-border w3-red w3-round-xlarge"  style="color:red">
+          <div class="w3-green w3-round-xlarge" style="height:24px;width:<%= @game.player1.health %>%"><%= @game.player1.health %></div>
+        </div>
+        <br />
+        <% if @game.player_1_turn && !@confirmation %>
+          <form action='/attack' method="post">
+            <input type="submit" value="Attack">
+          </form>
+        <% end %>
+        </div>
+
+        <div id="center">
+        <% if @confirmation && (@game.player1.health == 0 || @game.player2.health == 0) %>
+          <% if @game.player_1_turn %>
+            <h3 style="text-align:center;padding-top:100px;padding-bottom:50px;"> <%= @game.player1.name %> WON </h3>
+          <% else %>
+            <h3 style="text-align:center;padding-top:100px;padding-bottom:50px;"> <%= @game.player2.name %> WON </h3>
+          <% end %>
+          <form action='/' style="text-align:center">
+            <input type="submit" value="Finish">
+          </form>
+
+        <% elsif @confirmation %>
+          <% if @game.player_1_turn %>
+            <h3 style="text-align:center;padding-top:100px;padding-bottom:50px;"> <%= @game.player1.name %> hit <%= @game.player2.name %> and it was super effective </h3>
+          <% else %>
+            <h3 style="text-align:center;padding-top:100px;padding-bottom:50px;"> <%= @game.player2.name %> hit <%= @game.player1.name %> and it was super effective </h3>
+          <% end %>
+
+          <form action='/switch' method="post" style="text-align:center">
+            <input type="submit" value="Continue">
+          </form>
+        <% end %>
+      </div>
+
+      </body>
+    </html>

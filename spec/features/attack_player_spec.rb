@@ -3,6 +3,6 @@ feature 'Attacking' do
     sign_in_and_play
     click_button('Attack')
     click_button('Continue')
-    expect(page).to have_content('Thracian: 80')
+    expect(page).to have_content('Thracian: 90')
   end
 end
