@@ -12,12 +12,10 @@ class Battle < Sinatra::Base
 
   post '/names' do
     $game = Game.new(Player.new(params[:Player1]), Player.new(params[:Player2]))
-    session[:confirmation] = false
     redirect to('/play')
   end
 
   get '/play' do
-    @confirmation = session[:confirmation]
     @game = $game
     erb(:play)
   end
@@ -29,16 +27,14 @@ class Battle < Sinatra::Base
   end
 
   get '/confirmation' do
-    session[:confirmation] = true
-    @confirmation = session[:confirmation]
     @game = $game
+    @game.switch_confirmation
     erb(:play)
   end
 
    post '/switch' do
-    session[:confirmation] = false
-    @confirmation = session[:confirmation]
     @game = $game
+    @game.switch_confirmation
     @game.switch
     redirect to('/play')
   end

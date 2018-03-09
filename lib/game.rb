@@ -1,16 +1,10 @@
 class Game
-  attr_reader :player_1_turn
+  attr_reader :player_1_turn, :player1, :player2, :confirmation
   def initialize(player1, player2)
     @player_1_turn = true
-    @players = [player1, player2]
-  end
-
-  def player1
-    @players.first
-  end
-
-  def player2
-    @players.last
+    @player1 = player1
+    @player2 = player2
+    @confirmation = false
   end
 
   def attack
@@ -23,6 +17,14 @@ class Game
 
   def switch
     @player_1_turn = !@player_1_turn
+  end
+
+  def game_over
+    player1.health == 0 || player2.health == 0
+  end
+
+  def switch_confirmation
+    @confirmation = !@confirmation
   end
 
 end

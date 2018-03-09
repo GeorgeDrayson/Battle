@@ -50,7 +50,7 @@
           <div class="w3-green w3-round-xlarge" style="height:24px;width:<%= @game.player2.health %>%"><%= @game.player2.health %></div>
         </div>
         <br />
-        <% if !@game.player_1_turn && !@confirmation %>
+        <% if !@game.player_1_turn && !@game.confirmation %>
           <form action='/attack' method="post">
             <input type="submit" value="Attack">
           </form>
@@ -63,7 +63,7 @@
           <div class="w3-green w3-round-xlarge" style="height:24px;width:<%= @game.player1.health %>%"><%= @game.player1.health %></div>
         </div>
         <br />
-        <% if @game.player_1_turn && !@confirmation %>
+        <% if @game.player_1_turn && !@game.confirmation %>
           <form action='/attack' method="post">
             <input type="submit" value="Attack">
           </form>
@@ -71,7 +71,7 @@
         </div>
 
         <div id="center">
-        <% if @confirmation && (@game.player1.health == 0 || @game.player2.health == 0) %>
+        <% if @game.confirmation && (@game.game_over) %>
           <% if @game.player_1_turn %>
             <h3 style="text-align:center;padding-top:100px;padding-bottom:50px;"> <%= @game.player1.name %> WON </h3>
           <% else %>
@@ -81,7 +81,7 @@
             <input type="submit" value="Finish">
           </form>
 
-        <% elsif @confirmation %>
+        <% elsif @game.confirmation %>
           <% if @game.player_1_turn %>
             <h3 style="text-align:center;padding-top:100px;padding-bottom:50px;"> <%= @game.player1.name %> hit <%= @game.player2.name %> and it was super effective </h3>
           <% else %>
